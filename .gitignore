@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/MVC-Movie1/
+/MVCMovie/MVC-Movie/
