@@ -20,7 +20,8 @@ namespace MVCMovie.Models
         public string Genre { get; set; }
 
         [Required]
-        public Decimal Price { get; set; }      
+        [DataType(DataType.Currency)]
+        public decimal Price { get; set; }      
 
 
     }
