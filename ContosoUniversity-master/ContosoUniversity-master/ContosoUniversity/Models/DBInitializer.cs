@@ -68,16 +68,16 @@ namespace ContosoUniversity.Models
             {
                 new Department { Name = "English",     Budget = 350000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Abercrombie").ID },
+                    InstructorID  = context.Instructors.Single( i => i.LastName == "Abercrombie").ID },
                 new Department { Name = "Mathematics", Budget = 100000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Fakhouri").ID },
+                    InstructorID  = context.Instructors.Single( i => i.LastName == "Fakhouri").ID },
                 new Department { Name = "Engineering", Budget = 350000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Harui").ID },
+                    InstructorID  = context.Instructors.Single( i => i.LastName == "Harui").ID },
                 new Department { Name = "Economics",   Budget = 100000,
                     StartDate = DateTime.Parse("2007-09-01"),
-                    InstructorID  = instructors.Single( i => i.LastName == "Kapoor").ID }
+                    InstructorID  = context.Instructors.Single( i => i.LastName == "Kapoor").ID }
             };
 
             foreach (Department d in departments)
@@ -89,25 +89,25 @@ namespace ContosoUniversity.Models
             var courses = new Course[]
             {
                 new Course {CourseID = 1050, Title = "Chemistry",      Credits = 3,
-                    DepartmentId = departments.Single( s => s.Name == "Engineering").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "Engineering").DepartmentID
                 },
                 new Course {CourseID = 4022, Title = "Microeconomics", Credits = 3,
-                    DepartmentId = departments.Single( s => s.Name == "Economics").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "Economics").DepartmentID
                 },
                 new Course {CourseID = 4041, Title = "Macroeconomics", Credits = 3,
-                    DepartmentId = departments.Single( s => s.Name == "Economics").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "Economics").DepartmentID
                 },
                 new Course {CourseID = 1045, Title = "Calculus",       Credits = 4,
-                    DepartmentId = departments.Single( s => s.Name == "Mathematics").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "Mathematics").DepartmentID
                 },
                 new Course {CourseID = 3141, Title = "Trigonometry",   Credits = 4,
-                    DepartmentId = departments.Single( s => s.Name == "Mathematics").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "Mathematics").DepartmentID
                 },
                 new Course {CourseID = 2021, Title = "Composition",    Credits = 3,
-                    DepartmentId = departments.Single( s => s.Name == "English").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "English").DepartmentID
                 },
                 new Course {CourseID = 2042, Title = "Literature",     Credits = 4,
-                    DepartmentId = departments.Single( s => s.Name == "English").DepartmentID
+                    DepartmentId = context.Departments.Single( s => s.Name == "English").DepartmentID
                 },
             };
 

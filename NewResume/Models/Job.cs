@@ -12,8 +12,11 @@ namespace NewResume.Models
 
         public string JobTitle { get; set; }
 
+
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime JobDateFrom { get; set; }
 
+        [DataType(DataType.Date)]
         [DisplayFormat(NullDisplayText = "Present")]
         public DateTime JobDateTo { get; set; }
     }
