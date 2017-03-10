@@ -1,0 +1,71 @@
+@model IEnumerable<NewResume.Models.Employer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployerZip)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerZip)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -11,6 +11,7 @@ using ContosoUniversity.Models.SchoolViewModels;
 
 namespace ContosoUniversity.Controllers
 {
+    
     public class InstructorsController : Controller
     {
         private readonly SchoolContext _context;

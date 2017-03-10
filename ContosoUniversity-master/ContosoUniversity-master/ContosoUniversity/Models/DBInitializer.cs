@@ -20,21 +20,21 @@ namespace ContosoUniversity.Models
 
             var students = new Student[]
             {
-                new Student { FirstName = "Carson",   LastName = "Alexander",
+                new Student { FirstMidName = "Carson",   LastName = "Alexander",
                     EnrollmentDate = DateTime.Parse("2010-09-01") },
-                new Student { FirstName = "Meredith", LastName = "Alonso",
+                new Student { FirstMidName = "Meredith", LastName = "Alonso",
                     EnrollmentDate = DateTime.Parse("2012-09-01") },
-                new Student { FirstName = "Arturo",   LastName = "Anand",
+                new Student { FirstMidName = "Arturo",   LastName = "Anand",
                     EnrollmentDate = DateTime.Parse("2013-09-01") },
-                new Student { FirstName = "Gytis",    LastName = "Barzdukas",
+                new Student { FirstMidName = "Gytis",    LastName = "Barzdukas",
                     EnrollmentDate = DateTime.Parse("2012-09-01") },
-                new Student { FirstName = "Yan",      LastName = "Li",
+                new Student { FirstMidName = "Yan",      LastName = "Li",
                     EnrollmentDate = DateTime.Parse("2012-09-01") },
-                new Student { FirstName = "Peggy",    LastName = "Justice",
+                new Student { FirstMidName = "Peggy",    LastName = "Justice",
                     EnrollmentDate = DateTime.Parse("2011-09-01") },
-                new Student { FirstName = "Laura",    LastName = "Norman",
+                new Student { FirstMidName = "Laura",    LastName = "Norman",
                     EnrollmentDate = DateTime.Parse("2013-09-01") },
-                new Student { FirstName = "Nino",     LastName = "Olivetto",
+                new Student { FirstMidName = "Nino",     LastName = "Olivetto",
                     EnrollmentDate = DateTime.Parse("2005-09-01") }
             };
 

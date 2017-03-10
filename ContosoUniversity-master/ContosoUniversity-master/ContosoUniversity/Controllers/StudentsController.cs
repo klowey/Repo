@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContosoUniversity.Controllers
 {
+    [Authorize]
+
+
     public class StudentsController : Controller
     {
         private readonly SchoolContext _context;
@@ -41,7 +45,7 @@ namespace ContosoUniversity.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
-                || s.FirstName.Contains(searchString));
+                || s.FirstMidName.Contains(searchString));
             }
 
             switch (sortOrder)
@@ -86,12 +90,15 @@ namespace ContosoUniversity.Controllers
             return View(student);
         }
 
+        [Authorize(Roles = "Administrator")]
+
         // GET: Students/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         // POST: Students/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598

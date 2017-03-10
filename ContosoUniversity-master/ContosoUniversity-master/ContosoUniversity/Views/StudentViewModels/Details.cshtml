@@ -1,0 +1,85 @@
+@model ContosoUniversity.Models.SchoolViewModels.StudentViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstMidName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstMidName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.EnrollmentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.EnrollmentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enrollments)
+        </dt>
+        <dd>
+            <div class="=" row">
+                <div class="col-md-3">Course Title</div>
+                <div class="col-md-3">Credits</div>
+                <div class="col-md-3">Grade</div>
+                <div class="col-md-3"></div>
+            </div>
+            @*<table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                    <th></th>*@
+            @*</tr>*@
+            <div class="row">
+                @foreach (var item in Model.Enrollments)
+       
+        {
+
+
+        <div class="col-md-4">
+            @Html.DisplayFor(modelItem => item.Course.Title)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayFor(modelItem => item.Course.Credits)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayFor(modelItem => item.Grade)
+        </div>
+        <div class="row">
+        <div class="h6">Instructor(s)</div></div>
+        @foreach (var assignment in Model.CourseAssignment)
+        {
+                            @if (assignment.CourseID == item.CourseID)
+
+                            {
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-8"></div>
+                                    @Html.DisplayFor(modelItem => assignment.Instructor.FullName)
+
+                                    }
+                                    }
+                                    }
+</div>
+</dd>
+</dl>
+
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>*@
+</div>

@@ -1,0 +1,36 @@
+@model NewResume.Models.Job
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDateFrom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobDateFrom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDateTo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobDateTo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.JobId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
