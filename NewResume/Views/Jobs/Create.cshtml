@@ -12,32 +12,38 @@
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
+            <label asp-for="EmployerId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="EmployerId" class="form-control" asp-items="ViewBag.EmployerId"></select>
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="JobTitle" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="JobTitle" class="form-control" />
                 <span asp-validation-for="JobTitle" class="text-danger" />
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="JobDateFrom" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="JobDateFrom" class="form-control" />
-                <span asp-validation-for="JobDateFrom" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="JobDateFrom" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="JobDateFrom" class="form-control" />
+                    <span asp-validation-for="JobDateFrom" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobDateTo" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="JobDateTo" class="form-control" />
+                    <span asp-validation-for="JobDateTo" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="JobDateTo" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="JobDateTo" class="form-control" />
-                <span asp-validation-for="JobDateTo" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
 </form>
 
 <div>

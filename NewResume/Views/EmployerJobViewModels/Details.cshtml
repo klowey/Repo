@@ -1,0 +1,53 @@
+@model NewResume.Models.EmployerJobViewModel.EmployerJobViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Work History</h2>
+
+<div>
+    <h4>Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    <dd>
+        <table class="table">
+            <tr>
+                <th>Employer</th>
+                <th>Job Title</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            @foreach (var item in Model.Jobs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employer.EmployerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobDateFrom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobDateTo)
+                    </td>
+                    @*<td>
+                        <a asp-action="Details" asp-route-id="@item.JobId">Delete</a>
+                    </td>*@
+                    <td>
+                        <a asp-action="View" asp-route-id="@item.JobId">Details</a> 
+                       </td>
+                </tr>
+
+            }
+
+</table>
+    </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
+    <a asp-action="Index">Back to List</a>
+</div>

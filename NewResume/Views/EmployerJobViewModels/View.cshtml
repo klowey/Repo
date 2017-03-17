@@ -1,0 +1,28 @@
+@model NewResume.Models.EmployerJobViewModel.EmployerJobViewModel
+    @{
+
+    }
+
+    <h2>@ViewData["Title"] </h2>
+
+    <p>
+        <a asp-action="Index">Back To Employer List</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.JobDuties)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duty)
+                    </td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>

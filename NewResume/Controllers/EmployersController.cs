@@ -16,7 +16,7 @@ namespace NewResume.Controllers
 
         public EmployersController(ApplicationDbContext context)
         {
-            _context = context;    
+            _context = context;
         }
 
         // GET: Employers

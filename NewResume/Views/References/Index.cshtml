@@ -1,0 +1,59 @@
+@model IEnumerable<NewResume.Models.Reference>
+
+@{
+    ViewData["Title"] = "References";
+}
+
+<h2>References</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RefFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefLastName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefEmail)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReferenceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReferenceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReferenceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using NewResume.Data;
 using NewResume.Models;
 
+
 namespace NewResume.Controllers
 {
     public class JobsController : Controller
@@ -20,9 +21,27 @@ namespace NewResume.Controllers
         }
 
         // GET: Jobs
-        public async Task<IActionResult> Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(await _context.Job.ToListAsync());
+
+                sortOrder = String.IsNullOrEmpty(sortOrder) ? "" : sortOrder;
+                ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var jobs = from j in _context.Job
+                       select j;
+            switch (sortOrder)
+            {
+                 case "Date":
+                    jobs = jobs.OrderBy(j => j.JobDateFrom);
+                    break;
+                case "date_desc":
+                    jobs = jobs.OrderByDescending(j => j.JobDateFrom);
+                    break;
+                             
+
+            }
+   
+            return View(jobs.ToList());
         }
 
         // GET: Jobs/Details/5
@@ -45,6 +64,7 @@ namespace NewResume.Controllers
         // GET: Jobs/Create
         public IActionResult Create()
         {
+            ViewData["EmployerId"] = new SelectList(_context.Employer, "EmployerId", "EmployerName");
             return View();
         }
 
@@ -53,7 +73,7 @@ namespace NewResume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobId,JobDateFrom,JobDateTo,JobTitle")] Job job)
+        public async Task<IActionResult> Create([Bind("JobId,JobDateFrom,JobDateTo,JobTitle,EmployerId")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +81,10 @@ namespace NewResume.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            ViewData["EmployerId"] = new SelectList(_context.Employer, "Id", "EmployerName", job.EmployerId);
             return View(job);
+
         }
 
         // GET: Jobs/Edit/5

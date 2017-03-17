@@ -1,36 +1,50 @@
 @model NewResume.Models.Employer
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Employer";
 }
 
-<h2>Edit</h2>
+<h2>Employer</h2>
 
 <form asp-action="Edit">
     <div class="form-horizontal">
-        <h4>Employer</h4>
+        <h4>Edit</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="EmployerId" />
+              <div class="form-group">
+                <label asp-for="EmployerName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EmployerName" class="form-control" />
+                    <span asp-validation-for="EmployerName" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployerStreet" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EmployerStreet" class="form-control" />
+                    <span asp-validation-for="EmployerStreet" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployerCity" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EmployerCity" class="form-control" />
+                    <span asp-validation-for="EmployerCity" class="text-danger" />
+                </div>
+            </div>
         <div class="form-group">
-            <label asp-for="EmployerCity" class="col-md-2 control-label"></label>
+            <label asp-for="EmployerState" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="EmployerCity" class="form-control" />
-                <span asp-validation-for="EmployerCity" class="text-danger" />
+                <input asp-for="EmployerState" class="form-control" />
+                <span asp-validation-for="EmployerState" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="EmployerEmail" class="col-md-2 control-label"></label>
+            <label asp-for="EmployerZip" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="EmployerEmail" class="form-control" />
-                <span asp-validation-for="EmployerEmail" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="EmployerName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="EmployerName" class="form-control" />
-                <span asp-validation-for="EmployerName" class="text-danger" />
+                <input asp-for="EmployerZip" class="form-control" />
+                <span asp-validation-for="EmployerZip" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
@@ -41,24 +55,17 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="EmployerState" class="col-md-2 control-label"></label>
+            <label asp-for="EmployerEmail" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="EmployerState" class="form-control" />
-                <span asp-validation-for="EmployerState" class="text-danger" />
+                <input asp-for="EmployerEmail" class="form-control" />
+                <span asp-validation-for="EmployerEmail" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="EmployerStreet" class="col-md-2 control-label"></label>
+            <label asp-for="EmployerWebsite" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="EmployerStreet" class="form-control" />
-                <span asp-validation-for="EmployerStreet" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="EmployerZip" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="EmployerZip" class="form-control" />
-                <span asp-validation-for="EmployerZip" class="text-danger" />
+                <input asp-for="EmployerWebsite" class="form-control" />
+                <span asp-validation-for="EmployerWebsite" class="text-danger" />
             </div>
         </div>
         <div class="form-group">

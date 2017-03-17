@@ -53,7 +53,7 @@ namespace NewResume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContactInfoId,City,Name,State,Street,Zipcode")] ContactInfo contactInfo)
+        public async Task<IActionResult> Create([Bind("ContactInfoId,City,FirstName,LastName,State,Street,Zipcode,Phone,Email")] ContactInfo contactInfo)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace NewResume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContactInfoId,City,Name,State,Street,Zipcode")] ContactInfo contactInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("ContactInfoId,City,FirstName,LastName,State,Street,Zipcode,Phone,Email")] ContactInfo contactInfo)
         {
             if (id != contactInfo.ContactInfoId)
             {

@@ -1,0 +1,39 @@
+@model IEnumerable<NewResume.Models.Employer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Employers</h2>
+
+<div>
+    <h4>Index</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Employer</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmployerName)
+                        </td>
+                        <td><a asp-action="Details" asp-route-id="@item.EmployerId">Details</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.EmployerId">Edit</a> |*@
+    @*<a asp-action="Index">Back to List</a>*@
+</div>
+

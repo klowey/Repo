@@ -27,15 +27,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">NewResume</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Resume</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Skills" asp-action="Skills">Skills</a></li>
-                    <li><a asp-area="" asp-controller="ContactInfoes" asp-action="Contact Info">Contact Info</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>                                      
+                    <li><a asp-area="" asp-controller="Skills" asp-action="Index">Skills</a></li>
+                    <li><a asp-area="" asp-controller="ContactInfoes" asp-action="Index">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Jobs" asp-action="Index">Jobs</a></li>
+                    <li><a asp-area="" asp-controller="Employers" asp-action="Index">Employers</a></li>
+                    <li><a asp-area="" asp-controller="Educations" asp-action="Index">Education</a></li>
+                    <li><a asp-area="" asp-controller="References" asp-action="Index">References</a></li>
+                    <li><a asp-area="" asp-controller="EmployerJobViewModels" asp-action="Index">Employer Details</a></li>
+                    <li><a asp-area="" asp-controller="JobDuties" asp-action="Index">Job Duties</a></li>
+
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

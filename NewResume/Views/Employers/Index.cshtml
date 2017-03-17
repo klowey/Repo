@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Employer</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,25 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.EmployerCity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployerEmail)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.EmployerName)
             </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Jobs)
+            </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.EmployerPhone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployerState)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployerStreet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployerZip)
+                @Html.DisplayNameFor(model => model.EmployerWebsite)
             </th>
             <th></th>
         </tr>
@@ -40,25 +28,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.EmployerCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployerEmail)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.EmployerName)
             </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.WorkHistory.JobTitle)
+            </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.EmployerPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployerState)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployerStreet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployerZip)
+                @Html.DisplayFor(modelItem => item.EmployerWebsite)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.EmployerId">Edit</a> |

@@ -48,6 +48,7 @@ namespace ContosoUniversity.Controllers
              .AsNoTracking()
              .ToListAsync();
 
+
             studentViewModel.CourseAssignment = await _context.CourseAssignments
                 .Where(c => studentViewModel.Enrollments.Select(e => e.CourseID).Contains(c.CourseID))
                 .Include(i => i.Instructor)

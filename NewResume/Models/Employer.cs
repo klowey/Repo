@@ -12,6 +12,7 @@ namespace NewResume.Models
         public int EmployerId { get; set; }
 
         [Required]
+        [Display(Name = "Name")]
         public string EmployerName { get; set; }
 
         
@@ -19,10 +20,13 @@ namespace NewResume.Models
         [Display(Name = "Street Address")]
         public string EmployerStreet { get; set; }
 
+        [Display(Name = "City")]
         public string EmployerCity { get; set; }
 
+        [Display(Name = "State")]
         public string EmployerState { get; set; }
 
+        [Display(Name ="Zip Code")]           
         public string EmployerZip { get; set; }
 
         [DataType(DataType.PhoneNumber)]
@@ -35,8 +39,13 @@ namespace NewResume.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string EmployerEmail { get; set; }
 
+       
+        [Display(Name = "Website")]
+        [Url(ErrorMessage = "Invalid Url")]
+        public string EmployerWebsite { get; set; }
 
-
+      
+       
 
     }
 }

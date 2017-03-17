@@ -180,7 +180,15 @@ namespace NewResume.Data.Migrations
                     b.Property<string>("City")
                         .IsRequired();
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired();
+
+                    b.Property<string>("LastName")
+                        .IsRequired();
+
+                    b.Property<string>("Phone")
                         .IsRequired();
 
                     b.Property<string>("State")
@@ -195,6 +203,134 @@ namespace NewResume.Data.Migrations
                     b.HasKey("ContactInfoId");
 
                     b.ToTable("ContactInfo");
+                });
+
+            modelBuilder.Entity("NewResume.Models.Education", b =>
+                {
+                    b.Property<int>("EducationId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Degree");
+
+                    b.Property<DateTime?>("GraduationDate");
+
+                    b.Property<string>("SchoolName")
+                        .IsRequired();
+
+                    b.HasKey("EducationId");
+
+                    b.ToTable("Education");
+                });
+
+            modelBuilder.Entity("NewResume.Models.Employer", b =>
+                {
+                    b.Property<int>("EmployerId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("EmployerCity");
+
+                    b.Property<string>("EmployerEmail");
+
+                    b.Property<string>("EmployerName")
+                        .IsRequired();
+
+                    b.Property<string>("EmployerPhone")
+                        .IsRequired();
+
+                    b.Property<string>("EmployerState");
+
+                    b.Property<string>("EmployerStreet");
+
+                    b.Property<string>("EmployerWebsite");
+
+                    b.Property<string>("EmployerZip");
+
+                    b.HasKey("EmployerId");
+
+                    b.ToTable("Employer");
+                });
+
+            modelBuilder.Entity("NewResume.Models.EmployerJobViewModel.EmployerJobViewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("EmployerId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployerId");
+
+                    b.ToTable("EmployerJobViewModel");
+                });
+
+            modelBuilder.Entity("NewResume.Models.Job", b =>
+                {
+                    b.Property<int>("JobId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("EmployerId");
+
+                    b.Property<int?>("EmployerJobViewModelId");
+
+                    b.Property<DateTime>("JobDateFrom");
+
+                    b.Property<DateTime?>("JobDateTo");
+
+                    b.Property<string>("JobTitle");
+
+                    b.HasKey("JobId");
+
+                    b.HasIndex("EmployerId");
+
+                    b.HasIndex("EmployerJobViewModelId");
+
+                    b.ToTable("Job");
+                });
+
+            modelBuilder.Entity("NewResume.Models.JobDuty", b =>
+                {
+                    b.Property<int>("JobDutyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Duty")
+                        .HasAnnotation("MaxLength", 5000);
+
+                    b.Property<int?>("EmployerJobViewModelId");
+
+                    b.Property<int?>("JobId");
+
+                    b.HasKey("JobDutyId");
+
+                    b.HasIndex("EmployerJobViewModelId");
+
+                    b.HasIndex("JobId");
+
+                    b.ToTable("JobDuty");
+                });
+
+            modelBuilder.Entity("NewResume.Models.Reference", b =>
+                {
+                    b.Property<int>("ReferenceId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Phone")
+                        .IsRequired();
+
+                    b.Property<string>("RefEmail");
+
+                    b.Property<string>("RefFirstName")
+                        .IsRequired();
+
+                    b.Property<string>("RefLastName")
+                        .IsRequired();
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("ReferenceId");
+
+                    b.ToTable("Reference");
                 });
 
             modelBuilder.Entity("NewResume.Models.Skill", b =>
@@ -248,6 +384,35 @@ namespace NewResume.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("NewResume.Models.EmployerJobViewModel.EmployerJobViewModel", b =>
+                {
+                    b.HasOne("NewResume.Models.Employer", "Employer")
+                        .WithMany()
+                        .HasForeignKey("EmployerId");
+                });
+
+            modelBuilder.Entity("NewResume.Models.Job", b =>
+                {
+                    b.HasOne("NewResume.Models.Employer", "Employer")
+                        .WithMany()
+                        .HasForeignKey("EmployerId");
+
+                    b.HasOne("NewResume.Models.EmployerJobViewModel.EmployerJobViewModel")
+                        .WithMany("Jobs")
+                        .HasForeignKey("EmployerJobViewModelId");
+                });
+
+            modelBuilder.Entity("NewResume.Models.JobDuty", b =>
+                {
+                    b.HasOne("NewResume.Models.EmployerJobViewModel.EmployerJobViewModel")
+                        .WithMany("JobDuties")
+                        .HasForeignKey("EmployerJobViewModelId");
+
+                    b.HasOne("NewResume.Models.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId");
                 });
         }
     }

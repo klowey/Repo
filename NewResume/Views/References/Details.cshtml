@@ -1,0 +1,48 @@
+@model NewResume.Models.Reference
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>References</h2>
+
+<div>
+    <h4>Detail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RefFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ReferenceId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
